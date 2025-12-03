@@ -1,24 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Mail, Phone, MapPin, Linkedin, Download, ExternalLink,
-  PenTool, Mic, Users, BookOpen, Award, Briefcase, GraduationCap,
-  Send, Menu, X, ChevronRight, Globe, Headphones,
-  MessageCircle
-} from 'lucide-react';
-
-
-import myPortofolioJurnal from './assets/portfolio-jurnalistik.pdf'
-
-
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
 import Footer from './components/Footer';
-import Portfolio from './components/Portfolio';
-import Experience from './components/Experience';
-import Achievements from './components/Achievements';
-import Contact from './components/Contact';
-import Skills from './components/Skills';
-import About from './components/About';
+import HomePage from './pages/HomePage';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PortfolioDetail from './pages/PortfolioDetail';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -46,6 +32,13 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+  if (activeSection) {
+    const path = activeSection === 'home' ? '/' : `/${activeSection}`;
+    window.history.replaceState(null, '', path);
+  }
+}, [activeSection]);
+
   const scrollToSection = (id) => {
     setIsMenuOpen(false);
     const element = document.getElementById(id);
@@ -54,48 +47,7 @@ const App = () => {
     }
   };
 
-  // State untuk formulir kontak
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleWhatsApp = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.message) {
-      alert("Mohon isi Nama dan Pesan terlebih dahulu.");
-      return;
-    }
-
-    const phoneNumber = "6285186899864"; // Format internasional
-    const text = `Halo Mutiara, perkenalkan saya ${formData.name} (${formData.email}).%0A%0A${encodeURIComponent(formData.message)}`;
-
-    window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
-  };
-
-  // Fungsi Kirim ke Email
-  const handleEmail = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.message) {
-      alert("Mohon isi Nama dan Pesan terlebih dahulu.");
-      return;
-    }
-
-    const emailTo = "dewimutiarakomala@gmail.com";
-    const subject = `Pesan Portfolio dari ${formData.name}`;
-    const body = `Halo Mutiara,%0D%0A%0D%0ASaya ${formData.name} (${formData.email}) ingin menyampaikan pesan:%0D%0A%0D%0A${formData.message}`;
-
-    window.location.href = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
+ 
 
   const navLinks = [
     { name: 'Home', id: 'home' },
@@ -109,13 +61,13 @@ const App = () => {
   return (
     <div className="bg-stone-50 text-stone-800 font-sans min-h-screen selection:bg-stone-200 selection:text-stone-900">
       <Navbar scrolled={scrolled} activeSection={activeSection} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} navLinks={navLinks} scrollToSection={scrollToSection} />
-      <Hero scrollToSection={scrollToSection} />
-      <About />
-      <Skills />
-      <Portfolio />
-      <Experience />
-      <Achievements />
-      <Contact />
+      <Router>
+      <Routes>
+        {/* Halaman Utama (One Page Scroll) */}
+        <Route path="/" element={<HomePage />} />
+        <Route path='/portfolio/:id' element={PortfolioDetail} />
+      </Routes>
+    </Router>
       <Footer />
     </div>
   );
