@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpen, PenTool, Globe, Users, Mic, Headphones } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import myPortofolioJurnal from '../assets/portfolio-jurnalistik.pdf'
 
@@ -14,8 +15,8 @@ const Portfolio = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Portfolio Item 1 */}
-          <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        {/* ITEM 1: AKADEMIK -> Link ke Page Detail */}
+          <Link to="/portfolio/academic" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
             <div className="h-48 bg-stone-200 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-stone-200 to-stone-300 opacity-50"></div>
               <div className="absolute inset-0 flex items-center justify-center">
@@ -28,17 +29,16 @@ const Portfolio = () => {
             <div className="p-6">
               <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Analisis Kejahatan Pinjol</h3>
               <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Skripsi yang meneliti fenomena kejahatan pinjaman online ilegal di kalangan mahasiswa IPB dalam era komunikasi digital.
+                Skripsi & Riset. Klik untuk melihat detail penelitian.
               </p>
               <div className="flex flex-wrap gap-2 text-xs">
                 <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Research</span>
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Writing</span>
               </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Portfolio Item 2 */}
-          <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          {/* ITEM 2: KREATIF -> Link ke Page Detail */}
+          <Link to="/portfolio/creative" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
             <div className="h-48 bg-stone-800 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <PenTool className="text-stone-600 opacity-50" size={48} />
@@ -50,17 +50,16 @@ const Portfolio = () => {
             <div className="p-6">
               <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Penulis Antologi Terbaik</h3>
               <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Juara 1 dan 2 dalam berbagai kompetisi menulis antologi cerpen dan puisi yang diselenggarakan oleh Pelangi Media dan Sila Media.
+                Kumpulan cerpen dan puisi pemenang lomba.
               </p>
               <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Creative Writing</span>
                 <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Storytelling</span>
               </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Portfolio Item 3 */}
-          <a href={myPortofolioJurnal} className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          {/* ITEM 3: JURNALISTIK -> Link ke Page Detail */}
+          <Link to="/portfolio/jurnalistik" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
             <div className="h-48 bg-amber-50 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Globe className="text-amber-200 opacity-50" size={48} />
@@ -72,14 +71,13 @@ const Portfolio = () => {
             <div className="p-6">
               <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Liputan Jurnalistik</h3>
               <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Pengalaman luas sebagai jurnalis kontributor untuk Contributor Media Bogor dan National Headline, melakukan wawancara dan reportase.
+                Arsip berita, wawancara, dan reportase lapangan.
               </p>
               <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Interview</span>
                 <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">News</span>
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* Portfolio Item 4 */}
           <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">

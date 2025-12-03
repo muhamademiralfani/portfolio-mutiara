@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-
+import PortfolioDetail from './pages/PortfolioDetail'; // Import komponen
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PortfolioDetail from './pages/PortfolioDetail';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -15,8 +14,6 @@ const App = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      // Update active section based on scroll position
       const sections = ['home', 'about', 'skills', 'portfolio', 'experience', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
@@ -32,22 +29,20 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-  if (activeSection) {
-    const path = activeSection === 'home' ? '/' : `/${activeSection}`;
-    window.history.replaceState(null, '', path);
-  }
-}, [activeSection]);
+  
 
   const scrollToSection = (id) => {
     setIsMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // Jika berada di halaman detail, kita harus kembali ke home dulu
+    if (window.location.pathname !== '/') {
+        window.location.href = `/#${id}`;
+    } else {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
     }
   };
-
- 
 
   const navLinks = [
     { name: 'Home', id: 'home' },
@@ -61,13 +56,18 @@ const App = () => {
   return (
     <div className="bg-stone-50 text-stone-800 font-sans min-h-screen selection:bg-stone-200 selection:text-stone-900">
       <Navbar scrolled={scrolled} activeSection={activeSection} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} navLinks={navLinks} scrollToSection={scrollToSection} />
+      
       <Router>
-      <Routes>
-        {/* Halaman Utama (One Page Scroll) */}
-        <Route path="/" element={<HomePage />} />
-        <Route path='/portfolio/:id' element={PortfolioDetail} />
-      </Routes>
-    </Router>
+        <Routes>
+          {/* Halaman Utama */}
+          <Route path="/" element={<HomePage scrollToSection={scrollToSection} />} />
+          
+          {/* Halaman Detail Portfolio (Routing Dinamis) */}
+          {/* :id akan menangkap 'jurnalistik', 'academic', dll */}
+          <Route path="/portfolio/:id" element={<PortfolioDetail />} />
+        </Routes>
+      </Router>
+      
       <Footer />
     </div>
   );
