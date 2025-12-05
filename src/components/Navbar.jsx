@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = ({ scrolled, activeSection, isMenuOpen, setIsMenuOpen, navLinks, scrollToSection }) => {
+  // 1. Buat referensi ke elemen navigasi
+  const navRef = useRef(null);
+
+  // 2. Tambahkan effect untuk mendeteksi klik di luar
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Jika menu terbuka DAN klik terjadi di luar elemen navRef
+      if (isMenuOpen && navRef.current && !navRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    // Pasang event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    // Bersihkan event listener saat komponen unmount
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen, setIsMenuOpen]); // Dependency array memastikan fungsi berjalan saat state berubah
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+    // 3. Pasang ref={navRef} pada elemen pembungkus utama <nav>
+    <nav 
+      ref={navRef}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}
+    >
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         <div className="font-serif text-2xl font-bold tracking-tighter text-stone-900 cursor-pointer" onClick={() => scrollToSection('home')}>
           MKD<span className="text-amber-600">.</span>

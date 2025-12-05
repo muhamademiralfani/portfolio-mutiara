@@ -1,8 +1,6 @@
 import React from 'react';
-import { BookOpen, PenTool, Globe, Users, Mic, Headphones } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-import myPortofolioJurnal from '../assets/portfolio-jurnalistik.pdf'
+import { ExternalLink } from 'lucide-react';
 
 const Portfolio = () => {
   return (
@@ -15,132 +13,162 @@ const Portfolio = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* ITEM 1: AKADEMIK -> Link ke Page Detail */}
-          <Link to="/portfolio/academic" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
-            <div className="h-48 bg-stone-200 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-stone-200 to-stone-300 opacity-50"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <BookOpen className="text-stone-400 opacity-50" size={48} />
-              </div>
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
+          
+          {/* ITEM 1: AKADEMIK */}
+          <Link to="/portfolio/academic" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
+            <div className="h-56 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1973&auto=format&fit=crop" 
+                alt="Academic Research" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-stone-900/40 group-hover:bg-stone-900/30 transition-all duration-300"></div>
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase text-stone-800">
                 Akademik
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Analisis Kejahatan Pinjol</h3>
-              <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Skripsi & Riset. Klik untuk melihat detail penelitian.
+              <h3 className="text-xl font-bold mb-2 text-stone-900 group-hover:text-amber-700 transition-colors">
+                Analisis Kejahatan Pinjol
+              </h3>
+              <p className="text-stone-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+                Skripsi & Riset mendalam mengenai dampak sosial pinjaman online ilegal.
               </p>
-              <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Research</span>
+              <div className="flex items-center text-amber-600 text-sm font-medium">
+                Lihat Detail <ExternalLink size={14} className="ml-1" />
               </div>
             </div>
           </Link>
 
-          {/* ITEM 2: KREATIF -> Link ke Page Detail */}
-          <Link to="/portfolio/creative" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
-            <div className="h-48 bg-stone-800 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <PenTool className="text-stone-600 opacity-50" size={48} />
-              </div>
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
+          {/* ITEM 2: KREATIF */}
+          <Link to="/portfolio/creative" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
+            <div className="h-56 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2070&auto=format&fit=crop" 
+                alt="Creative Writing" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-stone-900/40 group-hover:bg-stone-900/30 transition-all duration-300"></div>
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase text-stone-800">
                 Kreatif / Sastra
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Penulis Antologi Terbaik</h3>
-              <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Kumpulan cerpen dan puisi pemenang lomba.
+              <h3 className="text-xl font-bold mb-2 text-stone-900 group-hover:text-amber-700 transition-colors">
+                Penulis Antologi Terbaik
+              </h3>
+              <p className="text-stone-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+                Kumpulan cerpen dan puisi pemenang lomba nasional.
               </p>
-              <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Storytelling</span>
+              <div className="flex items-center text-amber-600 text-sm font-medium">
+                Lihat Detail <ExternalLink size={14} className="ml-1" />
               </div>
             </div>
           </Link>
 
-          {/* ITEM 3: JURNALISTIK -> Link ke Page Detail */}
-          <Link to="/portfolio/jurnalistik" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
-            <div className="h-48 bg-amber-50 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Globe className="text-amber-200 opacity-50" size={48} />
-              </div>
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
+          {/* ITEM 3: JURNALISTIK */}
+          <Link to="/portfolio/jurnalistik" className="group rounded-2xl overflow-hidden bg-white border border-stone-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block">
+            <div className="h-56 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop" 
+                alt="Journalism" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-stone-900/40 group-hover:bg-stone-900/30 transition-all duration-300"></div>
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase text-stone-800">
                 Jurnalistik
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Liputan Jurnalistik</h3>
-              <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Arsip berita, wawancara, dan reportase lapangan.
+              <h3 className="text-xl font-bold mb-2 text-stone-900 group-hover:text-amber-700 transition-colors">
+                Liputan & Berita
+              </h3>
+              <p className="text-stone-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+                Arsip berita, wawancara eksklusif, dan reportase lapangan diberbagai media.
               </p>
-              <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">News</span>
+              <div className="flex items-center text-amber-600 text-sm font-medium">
+                Lihat Detail <ExternalLink size={14} className="ml-1" />
               </div>
             </div>
           </Link>
 
-          {/* Portfolio Item 4 */}
-          <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div className="h-48 bg-blue-50 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Users className="text-blue-200 opacity-50" size={48} />
-              </div>
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
-                Organisasi
+          {/* ITEM 4: PUBLIC RELATIONS */}
+          <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="h-56 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop" 
+                alt="Public Relations" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-stone-900/40 group-hover:bg-stone-900/30 transition-all duration-300"></div>
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase text-stone-800">
+                Organisasi / PR
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Public Relations - Jendela Ibu</h3>
-              <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Memantau media, mendistribusikan undangan konferensi pers, dan membuat rilis pers untuk dokumentasi kegiatan.
+              <h3 className="text-xl font-bold mb-2 text-stone-900 group-hover:text-amber-700 transition-colors">
+                Public Relations - Jendela Ibu
+              </h3>
+              <p className="text-stone-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+                Memantau media, mendistribusikan undangan pers, dan manajemen komunikasi krisis.
               </p>
               <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">PR</span>
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Media Relations</span>
+                <span className="px-2 py-1 bg-stone-100 border border-stone-200 rounded text-stone-600">Media Relations</span>
+                <span className="px-2 py-1 bg-stone-100 border border-stone-200 rounded text-stone-600">Communication</span>
               </div>
             </div>
           </div>
 
-          {/* Portfolio Item 5 */}
-          <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div className="h-48 bg-pink-50 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Mic className="text-pink-200 opacity-50" size={48} />
-              </div>
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
+          {/* ITEM 5: BROADCAST */}
+          <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="h-56 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2070&auto=format&fit=crop" 
+                alt="Broadcasting" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-stone-900/40 group-hover:bg-stone-900/30 transition-all duration-300"></div>
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase text-stone-800">
                 Broadcast
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Audio Transcriber - RRI Jakarta</h3>
-              <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Memastikan kualitas hasil transkrip audio layak dipublikasikan pada portal berita, serta membuat siaran berita dan showbiz.
+              <h3 className="text-xl font-bold mb-2 text-stone-900 group-hover:text-amber-700 transition-colors">
+                Audio Transcriber - RRI
+              </h3>
+              <p className="text-stone-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+                Transkrip audio berita, penulisan naskah siaran, dan editing konten radio.
               </p>
               <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Editing</span>
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Broadcasting</span>
+                <span className="px-2 py-1 bg-stone-100 border border-stone-200 rounded text-stone-600">Editing</span>
+                <span className="px-2 py-1 bg-stone-100 border border-stone-200 rounded text-stone-600">Scriptwriting</span>
               </div>
             </div>
           </div>
 
-          {/* Portfolio Item 6 */}
-          <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div className="h-48 bg-stone-600 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Headphones className="text-stone-400 opacity-50" size={48} />
-              </div>
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
+          {/* ITEM 6: TEKNIS / SOUND */}
+          <div className="group rounded-2xl overflow-hidden bg-white border border-stone-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="h-56 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop" 
+                alt="Sound Engineering" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-stone-900/40 group-hover:bg-stone-900/30 transition-all duration-300"></div>
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase text-stone-800">
                 Teknis
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-amber-700 transition-colors">Soundman Freelance</h3>
-              <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                Mengoperasikan sistem suara untuk live event, memanipulasi suara untuk hasil optimal, dan manajemen peralatan rekaman.
+              <h3 className="text-xl font-bold mb-2 text-stone-900 group-hover:text-amber-700 transition-colors">
+                Soundman Freelance
+              </h3>
+              <p className="text-stone-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+                Operasional sound system live event, mixing, dan manajemen peralatan audio.
               </p>
               <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Technical</span>
-                <span className="px-2 py-1 bg-stone-50 border border-stone-200 rounded text-stone-600">Operations</span>
+                <span className="px-2 py-1 bg-stone-100 border border-stone-200 rounded text-stone-600">Live Sound</span>
+                <span className="px-2 py-1 bg-stone-100 border border-stone-200 rounded text-stone-600">Technical</span>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-import PortfolioDetail from './pages/PortfolioDetail'; // Import komponen
+import PortfolioDetail from './pages/PortfolioDetail';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
@@ -14,12 +14,14 @@ const App = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = ['home', 'about', 'skills', 'portfolio', 'experience', 'contact'];
+      // Tambahkan 'testimonials' ke daftar section yang dipantau
+      const sections = ['home', 'about', 'skills', 'portfolio', 'experience', 'testimonials', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          // Logika deteksi section aktif sedikit disesuaikan agar lebih akurat
+          return rect.top <= 150 && rect.bottom >= 150;
         }
         return false;
       });
@@ -29,11 +31,8 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  
-
   const scrollToSection = (id) => {
     setIsMenuOpen(false);
-    // Jika berada di halaman detail, kita harus kembali ke home dulu
     if (window.location.pathname !== '/') {
         window.location.href = `/#${id}`;
     } else {
@@ -44,12 +43,14 @@ const App = () => {
     }
   };
 
+  // Tambahkan link 'Testimonials' ke navigasi
   const navLinks = [
     { name: 'Home', id: 'home' },
     { name: 'About', id: 'about' },
     { name: 'Skills', id: 'skills' },
     { name: 'Portfolio', id: 'portfolio' },
     { name: 'Experience', id: 'experience' },
+    { name: 'Testimonials', id: 'testimonials' }, // <-- Baru
     { name: 'Contact', id: 'contact' },
   ];
 
@@ -59,11 +60,7 @@ const App = () => {
       
       <Router>
         <Routes>
-          {/* Halaman Utama */}
           <Route path="/" element={<HomePage scrollToSection={scrollToSection} />} />
-          
-          {/* Halaman Detail Portfolio (Routing Dinamis) */}
-          {/* :id akan menangkap 'jurnalistik', 'academic', dll */}
           <Route path="/portfolio/:id" element={<PortfolioDetail />} />
         </Routes>
       </Router>
