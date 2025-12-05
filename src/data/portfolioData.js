@@ -1,3 +1,5 @@
+import laporanBintangRadio from '../assets/laporan-bintangradio.pdf'
+
 export const portfolioData = {
   jurnalistik: {
     title: "Jurnalistik",
@@ -29,8 +31,8 @@ export const portfolioData = {
       },
       {
         id: 4,
-        title: "YWKI Luncurkan Gerakan 'Hidup Sesudah Hidup' untuk Kauny Al-Quran University",
-        image: "https://www.jabaronline.com/media/images/2025/10/1168feea7c85477.jpeg?location=14&width=&height=&quality=90&fit=1", // Placeholder (bisa diganti dengan URL gambar asli dari berita)
+        title: "YWKI Luncurkan Gerakan 'Hidup Sesudah Hidup'",
+        image: "https://www.jabaronline.com/media/images/2025/10/1168feea7c85477.jpeg?location=14&width=&height=&quality=90&fit=1",
         date: "Terkini",
         excerpt: "Peluncuran gerakan wakaf produktif oleh YWKI sebagai upaya pembangunan fasilitas pendidikan Kauny Al-Quran University.",
         link: "https://www.jabaronline.com/ywki-luncurkan-gerakan-hidup-sesudah-hidup-gerakan-wakaf-produktif-untuk-pembangunan-kauny-al-quran-university"
@@ -38,7 +40,7 @@ export const portfolioData = {
       {
         id: 5,
         title: "Talkshow Music Prenur: Kemkraf & RRI Dukung Pelestarian Musik Lokal",
-        image: "https://www.jabaronline.com/media/images/2025/03/1167c92c85de523.jpeg?location=14&width=&height=&quality=90&fit=1", // Placeholder (bisa diganti dengan URL gambar asli dari berita)
+        image: "https://www.jabaronline.com/media/images/2025/03/1167c92c85de523.jpeg?location=14&width=&height=&quality=90&fit=1",
         date: "Terkini",
         excerpt: "Liputan kolaborasi antara Kemenparekraf dan RRI dalam mendukung pengembangan serta pelestarian musik lokal melalui talkshow interaktif.",
         link: "https://www.jabaronline.com/talkshow-music-prenur-kemkraf-bekerjasama-rri-mendukung-plestarian-dan-pengembangan-music-lokal"
@@ -72,5 +74,40 @@ export const portfolioData = {
         link: "#"
       }
     ]
+  },
+  // KATEGORI BARU DITAMBAHKAN DI SINI
+  organization: {
+    title: "Organisasi & PR",
+    description: "Pengalaman dalam manajemen acara (Event Organizer), hubungan masyarakat, dan strategi komunikasi publik.",
+    items: [
+      {
+        id: 1,
+        title: "Bintang Radio Indonesia 2025",
+        // Ganti URL di bawah ini dengan URL gambar poster Bintang Radio (portfolio.png)
+        image: "https://res.cloudinary.com/dvat9t8q9/image/upload/v1764929737/portfolio_mmylra.jpg", 
+        date: "Nov 2025",
+        excerpt: "Rangkaian show spesial RRI menampilkan Maliq & D'Essentials dan Shabrina Leonar di Auditorium Abdulrahman Saleh.",
+        // Link ini akan mengarah ke gambar poster ketika 'Lihat Detail' diklik
+        link: laporanBintangRadio 
+      },
+      {
+        id: 2,
+        title: "InspireNation Concert 2025",
+        // Ganti URL di bawah ini dengan URL gambar poster InspireNation (portfolio2.png)
+        image: "https://res.cloudinary.com/dvat9t8q9/image/upload/v1764929782/portfolio2_h4metv.jpg",
+        date: "13 Des 2025",
+        excerpt: "Konser musik oleh Humas & Promosi Universitas Pakuan menampilkan Pamungkas & Raissa Anggiani di The Bucketlist Bogor.",
+        link: "https://res.cloudinary.com/dvat9t8q9/image/upload/v1764929782/portfolio2_h4metv.jpg"
+      },
+      {
+        id: 3,
+        title: "Muse Model: Fun Hunting Race",
+        // Ganti URL di bawah ini dengan URL gambar poster Muse Model (portfolio3.png)
+        image: "https://res.cloudinary.com/dvat9t8q9/image/upload/v1764929790/portfolio3_ldaela.jpg",
+        date: "12 Juli 2025",
+        excerpt: "Event fotografi dan talkshow interaktif 'Ruang Cerita di Balik Lensa' bersama Muse Model Community di Ciplaz Depok.",
+        link: "https://res.cloudinary.com/dvat9t8q9/image/upload/v1764929790/portfolio3_ldaela.jpg"
+      }
+    ]
   }
-};``
+};
